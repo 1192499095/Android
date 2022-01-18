@@ -105,9 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         };
         myAdapter.setOnItemClickListener(recyc);
-        if(isfollow==false){
-            myAdapter.notifyDataSetChanged();
-        }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -118,7 +115,9 @@ public class MainActivity extends AppCompatActivity {
         isfollow=bundle.getBoolean("follow");
         if(isfollow==false){
             list1.remove(mposition);
+            list.remove(mposition);
             myAdapter.notifyDataSetChanged();
+            todo();
 
         }
     }
